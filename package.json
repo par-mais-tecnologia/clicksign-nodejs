@@ -1,0 +1,56 @@
+{
+  "name": "@parmais/clicksign-nodejs",
+  "version": "0.0.1",
+  "description": "Simple Clicksign API wrapper.",
+  "main": "index.js",
+  "scripts": {
+    "test": "env $(cat .env | xargs) node $NODE_DEBUG_OPTION node_modules/.bin/ava",
+    "test:coverage": "nyc npm run test",
+    "test:coveralls": "nyc --reporter=text-lcov npm run test | env $(cat .env | xargs) coveralls",
+    "validate": "standard",
+    "validate:fix": "standard --fix"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "exclude": [
+      "lib/logger/logger.js"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "cache": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/par-mais-tecnologia/clicksign-nodejs.git"
+  },
+  "keywords": [
+    "Par Mais",
+    "parmais",
+    "clicksign",
+    "axios",
+    "async",
+    "api"
+  ],
+  "author": "Daniel Amato Zabotti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/par-mais-tecnologia/clicksign-nodejs/issues"
+  },
+  "homepage": "https://github.com/par-mais-tecnologia/clicksign-nodejs#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bunyan": "^1.8.12"
+  },
+  "devDependencies": {
+    "ava": "1.0.0-beta.6",
+    "coveralls": "^3.0.2",
+    "nyc": "^12.0.2",
+    "standard": "^11.0.1"
+  }
+}
